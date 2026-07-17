@@ -1,149 +1,381 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* ========================= */
+/* LEFT STREET */
+/* ========================= */
 
-body{
-overflow:hidden;
-background:#87CEEB;
-height:100vh;
-}
+.left-side{
 
-.scene{
-position:relative;
-width:100vw;
-height:100vh;
-overflow:hidden;
-}
-
-.sky{
 position:absolute;
-width:100%;
+
+left:0;
+
+bottom:0;
+
+width:34vw;
+
 height:100%;
-background:linear-gradient(#8fd8ff,#d9f5ff);
+
+pointer-events:none;
+
 }
 
-.mountains{
+/* Sidewalk */
+
+.sidewalk{
+
 position:absolute;
-bottom:35%;
-width:200%;
-height:250px;
 
-background:
-radial-gradient(circle at 15% 100%,#7d9f6f 0 35%,transparent 36%),
-radial-gradient(circle at 35% 100%,#6d8e61 0 40%,transparent 41%),
-radial-gradient(circle at 55% 100%,#79976b 0 38%,transparent 39%),
-radial-gradient(circle at 80% 100%,#6d8e61 0 42%,transparent 43%);
+right:0;
 
-animation:mountainMove 20s linear infinite;
-}
+bottom:0;
 
-.road{
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-width:280px;
-height:200%;
-background:#444;
-bottom:-100%;
-animation:roadMove 1.2s linear infinite;
-}
+width:100px;
 
-.road::before{
-content:"";
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-width:8px;
 height:100%;
-background:
-repeating-linear-gradient(
-to bottom,
-white 0 35px,
-transparent 35px 70px
-);
+
+background:#9f9f9f;
+
+transform:skewY(-25deg);
+
+box-shadow:
+inset -4px 0 rgba(255,255,255,.3);
+
 }
 
-.town{
+/* Buildings */
+
+.building{
+
 position:absolute;
-display:flex;
-flex-direction:column;
-gap:120px;
-bottom:-800px;
-animation:townMove 4s linear infinite;
+
+width:180px;
+
+background:#f6d8b5;
+
+border-radius:4px;
+
+transform-origin:bottom;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+
 }
 
-.left{
-left:18%;
-}
+/* Perspective */
 
-.right{
-right:18%;
-}
+.b1{
 
-.house{
-width:120px;
-height:120px;
-background:#f7d794;
-border-radius:8px;
-position:relative;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
+height:380px;
 
-.house::before{
-content:"";
-position:absolute;
-top:-45px;
-left:-10px;
-width:140px;
-height:55px;
-background:#d63031;
-clip-path:polygon(50% 0,100% 100%,0 100%);
-}
+bottom:90px;
 
-.house::after{
-content:"";
-position:absolute;
 left:40px;
-top:40px;
-width:40px;
-height:40px;
-background:#74b9ff;
+
+transform:
+perspective(1000px)
+rotateY(18deg);
+
 }
 
-@keyframes townMove{
+.b2{
+
+height:320px;
+
+bottom:330px;
+
+left:90px;
+
+transform:
+scale(.85)
+perspective(1000px)
+rotateY(18deg);
+
+opacity:.95;
+
+}
+
+.b3{
+
+height:260px;
+
+bottom:520px;
+
+left:130px;
+
+transform:
+scale(.72)
+perspective(1000px)
+rotateY(18deg);
+
+opacity:.9;
+
+}
+
+/* Roof */
+
+.building::before{
+
+content:"";
+
+position:absolute;
+
+top:-16px;
+
+left:-8px;
+
+width:196px;
+
+height:18px;
+
+background:#5f6672;
+
+border-radius:3px;
+
+}
+
+/* Door */
+
+.door{
+
+position:absolute;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:46px;
+
+height:82px;
+
+background:#7a5235;
+
+border-radius:3px 3px 0 0;
+
+}
+
+/* Windows */
+
+.windows{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+padding:40px 25px;
+
+}
+
+.windows span{
+
+width:42px;
+
+height:42px;
+
+background:#ffeeb2;
+
+border-radius:4px;
+
+box-shadow:
+
+0 0 15px rgba(255,230,120,.9),
+
+0 0 35px rgba(255,210,90,.4);
+
+animation:windowGlow 3s ease-in-out infinite;
+
+}
+
+/* Random glow */
+
+.windows span:nth-child(2){
+
+animation-delay:.6s;
+
+}
+
+.windows span:nth-child(4){
+
+animation-delay:1.4s;
+
+}
+
+.windows span:nth-child(6){
+
+animation-delay:2s;
+
+}
+
+@keyframes windowGlow{
 
 0%{
-transform:translateY(0);
+
+opacity:.55;
+
+}
+
+50%{
+
+opacity:1;
+
 }
 
 100%{
-transform:translateY(-700px);
-}
+
+opacity:.6;
 
 }
 
-@keyframes mountainMove{
+}
+
+/* Trees */
+
+.tree{
+
+position:absolute;
+
+width:70px;
+
+height:120px;
+
+bottom:0;
+
+}
+
+.tree::before{
+
+content:"";
+
+position:absolute;
+
+left:28px;
+
+bottom:0;
+
+width:12px;
+
+height:45px;
+
+background:#7a5635;
+
+}
+
+.tree::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:70px;
+
+height:70px;
+
+background:#6ca56d;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 25px rgba(0,0,0,.2);
+
+}
+
+.t1{
+
+left:250px;
+
+bottom:110px;
+
+}
+
+.t2{
+
+left:300px;
+
+bottom:420px;
+
+transform:scale(.75);
+
+}
+
+/* Bushes */
+
+.bush{
+
+position:absolute;
+
+background:#5e9c5c;
+
+border-radius:50px;
+
+box-shadow:
+
+0 0 15px rgba(0,0,0,.2);
+
+}
+
+.bush1{
+
+width:70px;
+
+height:36px;
+
+left:210px;
+
+bottom:120px;
+
+}
+
+.bush2{
+
+width:55px;
+
+height:28px;
+
+left:260px;
+
+bottom:310px;
+
+}
+
+/* Small movement */
+
+.building{
+
+animation:streetFloat 8s ease-in-out infinite;
+
+}
+
+@keyframes streetFloat{
 
 0%{
-transform:translateX(0);
+
+transform:translateY(0)
+perspective(1000px)
+rotateY(18deg);
+
+}
+
+50%{
+
+transform:translateY(-3px)
+perspective(1000px)
+rotateY(18deg);
+
 }
 
 100%{
-transform:translateX(-300px);
-}
 
-}
+transform:translateY(0)
+perspective(1000px)
+rotateY(18deg);
 
-@keyframes roadMove{
-
-0%{
-background-position-y:0;
-}
-
-100%{
-background-position-y:80px;
 }
 
 }
