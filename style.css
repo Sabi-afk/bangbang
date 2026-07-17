@@ -379,3 +379,237 @@ rotateY(18deg);
 }
 
 }
+
+/* ========================= */
+/* RIGHT STREET */
+/* ========================= */
+
+.right-side{
+
+position:absolute;
+
+right:0;
+bottom:0;
+
+width:34vw;
+height:100%;
+
+pointer-events:none;
+
+}
+
+/* Sidewalk */
+
+.right-side .sidewalk{
+
+position:absolute;
+
+left:0;
+
+bottom:0;
+
+width:100px;
+height:100%;
+
+background:#9f9f9f;
+
+transform:skewY(25deg);
+
+box-shadow:
+inset 4px 0 rgba(255,255,255,.3);
+
+}
+
+/* Buildings */
+
+.r1{
+
+height:380px;
+
+bottom:90px;
+
+right:40px;
+
+transform:
+perspective(1000px)
+rotateY(-18deg);
+
+}
+
+.r2{
+
+height:320px;
+
+bottom:330px;
+
+right:90px;
+
+transform:
+scale(.85)
+perspective(1000px)
+rotateY(-18deg);
+
+opacity:.95;
+
+}
+
+.r3{
+
+height:260px;
+
+bottom:520px;
+
+right:130px;
+
+transform:
+scale(.72)
+perspective(1000px)
+rotateY(-18deg);
+
+opacity:.9;
+
+}
+
+/* Roof */
+
+.right-side .building::before{
+
+content:"";
+
+position:absolute;
+
+top:-16px;
+
+left:-8px;
+
+width:196px;
+height:18px;
+
+background:#5f6672;
+
+border-radius:3px;
+
+}
+
+/* Float */
+
+.right-side .building{
+
+animation:rightFloat 8s ease-in-out infinite;
+
+}
+
+@keyframes rightFloat{
+
+0%{
+
+transform:
+translateY(0)
+perspective(1000px)
+rotateY(-18deg);
+
+}
+
+50%{
+
+transform:
+translateY(-3px)
+perspective(1000px)
+rotateY(-18deg);
+
+}
+
+100%{
+
+transform:
+translateY(0)
+perspective(1000px)
+rotateY(-18deg);
+
+}
+
+}
+
+/* Trees */
+
+.rt1{
+
+right:250px;
+
+bottom:110px;
+
+}
+
+.rt2{
+
+right:300px;
+
+bottom:420px;
+
+transform:scale(.75);
+
+}
+
+/* Bushes */
+
+.rb1{
+
+width:70px;
+height:36px;
+
+right:210px;
+
+bottom:120px;
+
+}
+
+.rb2{
+
+width:55px;
+height:28px;
+
+right:260px;
+
+bottom:310px;
+
+}
+
+/* Road edge shadow */
+
+.road{
+
+box-shadow:
+0 0 60px rgba(0,0,0,.45),
+inset 0 0 30px rgba(255,255,255,.08);
+
+}
+
+/* Soft sunset lighting */
+
+.scene::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(
+circle at 50% 75%,
+rgba(255,190,120,.28),
+transparent 60%
+),
+
+linear-gradient(
+180deg,
+transparent,
+rgba(255,170,120,.12)
+);
+
+mix-blend-mode:screen;
+
+}
