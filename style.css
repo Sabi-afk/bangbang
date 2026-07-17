@@ -1195,3 +1195,157 @@ right:175px;
 bottom:150px;
 
 }
+
+/* ================================= */
+/* CINEMATIC SUN GLOW */
+/* ================================= */
+
+.sun-glow{
+
+position:absolute;
+
+left:50%;
+bottom:18%;
+
+width:700px;
+height:350px;
+
+transform:translateX(-50%);
+
+background:
+radial-gradient(
+ellipse,
+rgba(255,185,120,.45),
+rgba(255,185,120,.12),
+transparent 70%
+);
+
+filter:blur(60px);
+
+pointer-events:none;
+
+animation:bloom 6s ease-in-out infinite;
+
+}
+
+@keyframes bloom{
+
+50%{
+
+opacity:.7;
+transform:translateX(-50%) scale(1.08);
+
+}
+
+}
+
+/* ================================= */
+/* PETALS */
+/* ================================= */
+
+.petal{
+
+position:absolute;
+
+width:14px;
+height:10px;
+
+background:#ffd0eb;
+
+border-radius:100%;
+
+opacity:.9;
+
+filter:blur(.2px);
+
+box-shadow:
+0 0 8px rgba(255,200,230,.45);
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:
+translateY(-30px)
+translateX(0)
+rotate(0deg);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(110vh)
+translateX(250px)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ================================= */
+/* WIND */
+/* ================================= */
+
+.wind{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.03),
+transparent
+);
+
+animation:windMove 7s linear infinite;
+
+}
+
+@keyframes windMove{
+
+0%{
+
+transform:translateX(-120%);
+
+}
+
+100%{
+
+transform:translateX(120%);
+
+}
+
+}
+
+/* ================================= */
+/* CAMERA SMOOTHNESS */
+/* ================================= */
+
+.scene{
+
+transition:
+transform .15s ease-out;
+
+will-change:transform;
+
+}
