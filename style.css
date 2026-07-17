@@ -1349,3 +1349,51 @@ transform .15s ease-out;
 will-change:transform;
 
 }
+
+/* ========================= */
+/* Sakura Generator */
+/* ========================= */
+
+const petals=document.querySelector(".petals");
+
+function createPetal(){
+
+const p=document.createElement("div");
+
+p.className="petal";
+
+p.style.left=Math.random()*window.innerWidth+"px";
+
+p.style.animationDuration=(5+Math.random()*5)+"s";
+
+p.style.opacity=.5+Math.random()*.5;
+
+p.style.scale=.6+Math.random()*.8;
+
+petals.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},10000);
+
+}
+
+setInterval(createPetal,180);
+
+/* ========================= */
+/* Mouse Camera */
+/* ========================= */
+
+document.addEventListener("mousemove",(e)=>{
+
+const x=(e.clientX/window.innerWidth-.5)*16;
+
+const y=(e.clientY/window.innerHeight-.5)*10;
+
+document.querySelector(".scene").style.transform=
+
+`translate(${x}px,${y}px)`;
+
+});
